@@ -68,10 +68,14 @@ export default function ValidatedNameField({
       }}
       onKeyPress={(e) => {
         if (e.key === "Enter") {
-          console.log(`try to send, helperText is ${helperText}`);
           if (!helperText) {
             PostSetName(isPlayerOne, nextName);
           }
+        }
+      }}
+      onBlur={(e) => {
+        if (!helperText) {
+          PostSetName(isPlayerOne, nextName);
         }
       }}
       error={!!helperText}
